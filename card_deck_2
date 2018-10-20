@@ -1,0 +1,19 @@
+T=int(input())
+def card_deck(T):
+    for i in range(0,T):
+        N=int(input())
+        A=input()
+        li = A.split(" ")
+        greatest = 0
+        for element in li:
+            if int(element) > greatest:
+                greatest = int(element)
+        index = ''.join(li).rindex(str(greatest))
+        li1 = li[:index + 1]
+        li2 = li[index + 1:]
+        li3 = li2 + li1
+        if sorted(li3) == li3:
+            print("YES")
+        else:
+            print("NO")
+card_deck(T)
