@@ -1,0 +1,39 @@
+T=int(input())
+def graph(T):
+    i=0
+    count = 0
+    change=0
+    B=""
+    while i<T:
+        N=int(input())
+        A=input()
+        li=A.split(" ")
+        j = 0
+        while j<len(li)-1:
+            num1=int(li[j])
+            num2=int(li[j+1])
+            if num1<num2:
+                less=num1
+            else:
+                less=num2
+            k = 2
+            while k<=less:
+                if num1%k==0 and num2%k==0:
+                    count+=1
+                    break
+                k+=1
+            if count>0:
+                change+=1
+                index=li.index(str(num2))
+                num2-=1
+                li[index]=str(num2)
+            count=0
+            j+=1
+        i+=1
+        print(change)
+        change=0
+        for elements in li:
+            B+=elements+" "
+        print(B)
+        B=""
+graph(T)
