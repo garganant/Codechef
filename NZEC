@@ -1,0 +1,31 @@
+def maximize(T):
+    for _ in range(T):
+        li=[int(i) for i in input().split()]
+        N=li[0]
+        k=li[1]
+        prod=1
+        sum=0
+        arr=[]
+        for i in range(1, k+1):
+            arr+=[i]
+            sum+=i
+        if sum>N:
+            print("-1")
+        else:
+            j=k-1
+            diff=N-sum
+            while diff>0:
+                arr[j]+=1
+                j-=1
+                if j<0:
+                    j=k-1
+                diff-=1
+            for element in arr:
+                prod*=element*element-element
+            prod=prod%1000000007
+            print(prod)
+try:
+    T=int(input())
+    maximize(T)
+except EOFError:
+    T=0
